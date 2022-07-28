@@ -2,7 +2,7 @@
 Desenvolvimento de microservices em C#.
 
 
-# O que precisa ser intalado? 
+# O que precisa ser instalado? 
 
 - <a href="https://dotnet.microsoft.com/en-us/download">Baixar .Net 6<a>
   

@@ -18,14 +18,44 @@ namespace RestWithASPNET.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Get(string firstNumber, string secondNumber)
+        
+        [HttpGet(Name = "op/{firstNumber}/{secondNumber}")]
+        public IActionResult Get(string op, string firstNumber, string secondNumber)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            if (op.Equals("soma"))
             {
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
+                if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+                {
+                    var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
+                    return Ok(sum.ToString());
+                }
             }
+            if (op.Equals("sub"))
+            {
+                if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+                {
+                    var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                    return Ok(sum.ToString());
+                }
+            }
+            if (op.Equals("div"))
+            {
+                if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+                {
+                    var sum = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
+                    return Ok(sum.ToString());
+                }
+            }
+            if (op.Equals("mult"))
+            {
+                if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+                {
+                    var sum = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+                    return Ok(sum.ToString());
+                }
+            }
+
+
             return BadRequest("Invalid Input");
         }
         private bool IsNumeric(string strNumber)

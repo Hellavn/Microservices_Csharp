@@ -22,6 +22,10 @@ namespace RestWithASPNET.Controllers
         [HttpGet(Name = "op/{firstNumber}/{secondNumber}")]
         public IActionResult Get(string op, string firstNumber, string secondNumber)
         {
+            Console.WriteLine("Para soma digite: soma \n" +
+                              "Para subtração digite: sub" +
+                              "Para divisão digite: div"+
+                              "Para multiplicação digite: mult");
             if (op.Equals("soma"))
             {
                 if (IsNumeric(firstNumber) && IsNumeric(secondNumber))

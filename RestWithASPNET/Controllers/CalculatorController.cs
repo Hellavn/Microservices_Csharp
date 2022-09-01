@@ -60,7 +60,7 @@ namespace RestWithASPNET.Controllers
             {
                 if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
                 {
-                    var sum = (ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber))/2;
+                    var sum = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber))/2;
                     return Ok(sum.ToString());
                 }
             }

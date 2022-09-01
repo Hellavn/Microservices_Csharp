@@ -22,10 +22,7 @@ namespace RestWithASPNET.Controllers
         [HttpGet(Name = "op/{firstNumber}/{secondNumber}")]
         public IActionResult Get(string op, string firstNumber, string secondNumber)
         {
-            Console.WriteLine("Para soma digite: soma \n" +
-                              "Para subtração digite: sub" +
-                              "Para divisão digite: div"+
-                              "Para multiplicação digite: mult");
+            
             if (op.Equals("soma"))
             {
                 if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
@@ -59,9 +56,29 @@ namespace RestWithASPNET.Controllers
                 }
             }
 
+            if (op.Equals("media"))
+            {
+                if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+                {
+                    var sum = (ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber))/2;
+                    return Ok(sum.ToString());
+                }
+            }
 
+            if (op.Equals("raiz"))
+            {
+                if (IsNumeric(firstNumber))
+                {
+                    var sum = Math.Sqrt((double)ConvertToDecimal(firstNumber));
+                    return Ok(sum.ToString());
+                }
+            }
             return BadRequest("Invalid Input");
         }
+
+
+
+
         private bool IsNumeric(string strNumber)
         {
             double number;

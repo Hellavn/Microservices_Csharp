@@ -1,4 +1,7 @@
-﻿namespace projeto2
+﻿using projeto2.Services;
+using projeto2.Services.implementations;
+
+namespace projeto2
 {
     public class Startup
     {
@@ -12,8 +15,9 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //Independecy Injection 
             services.AddControllers();
+            services.AddScoped<iPersonServices, PersonServiceImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

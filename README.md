@@ -1,5 +1,5 @@
 # Microservices_Csharp
-Desenvolvimento de microservices em C#.
+Desenvolvimento de microsserviços em C#.
 
 
 # O que precisa ser instalado? 
